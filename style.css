@@ -9,7 +9,7 @@
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start;
-    background: linear-gradient(0deg, rgba(19,41,61,1) 0%, rgba(237,245,249,1) 63%);
+    background: linear-gradient(0deg,green 0%, rgba(237,245,249,1) 63%);
   }
   
   .reset-button {
@@ -28,7 +28,7 @@
   button {
     background: radial-gradient(circle, rgba(240,230,140,1) 0%, rgba(187,96,33,0.9542191876750701) 100%);
     border-radius: 8px;
-    color: #13293d;
+    color: yellow;
     cursor: pointer;
     font-size: 2em;
     letter-spacing: 0.21px;
@@ -45,7 +45,7 @@
   header {
     padding: 40px;
     text-align: center;
-    background: #13293d;
+    background: yellowgreen;
     color: #fff;
     border-bottom:30px #879274;
   }
@@ -96,7 +96,7 @@
   .timer {
     height: 240px;
     padding: 10px;
-    background: #13293d;
+    background:orange;
     color: #fff;
     text-align: center;
   }
