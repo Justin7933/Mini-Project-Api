@@ -1,23 +1,23 @@
-const wordBlank = document.querySelector(".word-blanks");
-const win = document.querySelector(".win");
-const lose = document.querySelector(".lose");
-const timerElement = document.querySelector(".timer-count");
-const startButton = document.querySelector(".start-button");
+var wordBlank = document.querySelector(".word-blanks");
+var win = document.querySelector(".win");
+var lose = document.querySelector(".lose");
+var timerElement = document.querySelector(".timer-count");
+var startButton = document.querySelector(".start-button");
 
-let chosenWord = "";
-let numBlanks = 0;
-let winCounter = 0;
-let loseCounter = 0;
-let isWin = false;
-let timer;
-let timerCount;
+var chosenWord = "";
+var numBlanks = 0;
+var winCounter = 0;
+var loseCounter = 0;
+var isWin = false;
+var timer;
+var timerCount;
 
 // Arrays used to create blanks and letters on screen
-const lettersInChosenWord = [];
-const blanksLetters = [];
+var lettersInChosenWord = [];
+var blanksLetters = [];
 
 // Array of words the user will guess
-let words = ["variable","array", "modulus", "object", "function", "string", "boolean"];
+var words = ["variable","array", "modulus", "object", "function", "string", "boolean"];
 
 // The init function is called when the page loads 
 function init() {
@@ -82,7 +82,7 @@ function renderBlanks() {
   numBlanks = lettersInChosenWord.length;
   blanksLetters = []
   // Uses loop to push blanks to blankLetters array
-  for (let i = 0; i < numBlanks; i++) {
+  for (var i = 0; i < numBlanks; i++) {
     blanksLetters.push("_");
   }
   // Converts blankLetters array into a string and renders it on the screen
@@ -104,7 +104,7 @@ function setLosses() {
 // These functions are used by init
 function getWins() {
   // Get stored value from client storage, if it exists
-  let storedWins = localStorage.getItem("winCount");
+  var storedWins = localStorage.getItem("winCount");
   // If stored value doesn't exist, set counter to 0
   if (storedWins === null) {
     winCounter = 0;
@@ -117,7 +117,7 @@ function getWins() {
 }
 
 function getlosses() {
-  let storedLosses = localStorage.getItem("loseCount");
+  var storedLosses = localStorage.getItem("loseCount");
   if (storedLosses === null) {
     loseCounter = 0;
   } else {
@@ -136,14 +136,14 @@ function checkWin() {
 
 // Tests if guessed letter is in word and renders it to the screen.
 function checkLetters(letter) {
-  let letterInWord = false;
-  for (let i = 0; i < numBlanks; i++) {
+  var letterInWord = false;
+  for (var i = 0; i < numBlanks; i++) {
     if (chosenWord[i] === letter) {
       letterInWord = true;
     }
   }
   if (letterInWord) {
-    for (let j = 0; j < numBlanks; j++) {
+    for (var j = 0; j < numBlanks; j++) {
       if (chosenWord[j] === letter) {
         blanksLetters[j] = letter;
       }
@@ -159,11 +159,11 @@ document.addEventListener("keydown", function(event) {
     return;
   }
   // Convert all keys to lower case
-  let key = event.key.toLowerCase();
-  let alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split("");
+  var key = event.key.toLowerCase();
+  var alphabetNumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789 ".split("");
   // Test if key pushed is letter
   if (alphabetNumericCharacters.includes(key)) {
-    let letterGuessed = event.key;
+    var letterGuessed = event.key;
     checkLetters(letterGuessed)
     checkWin();
   }
